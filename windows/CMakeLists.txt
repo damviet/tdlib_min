@@ -90,12 +90,15 @@ add_custom_command(TARGET ${TEST_RUNNER} POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_if_different
   "${FLUTTER_LIBRARY}" $<TARGET_FILE_DIR:${TEST_RUNNER}>
 )
-
+message("hello")
+message($<TARGET_FILE_DIR:${TEST_RUNNER}>)
 # copy custom lib
 add_custom_command(TARGET ${TEST_RUNNER} POST_BUILD 
   COMMAND ${CMAKE_COMMAND} -E copy_directory 
   "${CMAKE_CURRENT_SOURCE_DIR}/libs" $<TARGET_FILE_DIR:${TEST_RUNNER}>
 )
+
+
 
 # Enable automatic test discovery.
 include(GoogleTest)
