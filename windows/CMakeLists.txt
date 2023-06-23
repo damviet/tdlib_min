@@ -64,9 +64,10 @@ enable_testing()
 
 # Add the Google Test dependency.
 include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/release-1.11.0.zip
+  FetchContent_Declare(
+    googletest
+    URL https://github.com/google/googletest/archive/release-1.11.0.zip
+    DOWNLOAD_EXTRACT_TIMESTAMP true
 )
 # Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
@@ -88,6 +89,12 @@ target_link_libraries(${TEST_RUNNER} PRIVATE gtest_main gmock)
 add_custom_command(TARGET ${TEST_RUNNER} POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_if_different
   "${FLUTTER_LIBRARY}" $<TARGET_FILE_DIR:${TEST_RUNNER}>
+)
+
+# copy custom lib
+add_custom_command(TARGET ${TEST_RUNNER} POST_BUILD 
+  COMMAND ${CMAKE_COMMAND} -E copy_directory 
+  "${CMAKE_CURRENT_SOURCE_DIR}/libs" $<TARGET_FILE_DIR:${TEST_RUNNER}>
 )
 
 # Enable automatic test discovery.
