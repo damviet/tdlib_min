@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tdlib_min/td_client.dart';
+import 'package:tdlib/td_client.dart';
 
 import './utils/router.dart' as utilrouter;
 import './utils/const.dart';

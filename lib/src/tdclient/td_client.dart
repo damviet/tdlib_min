@@ -1,5 +1,5 @@
 import 'dart:convert' show json;
-import 'package:tdlib_min/src/tdapi/tdapi.dart'
+import 'package:tdlib/src/tdapi/tdapi.dart'
     show TdObject, TdFunction, convertToObject;
 import 'platform_interfaces/td_plugin.dart';
 export 'platform_interfaces/td_plugin.dart';

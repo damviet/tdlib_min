@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:tdlib_min/td_api.dart' show TdError;
+import 'package:tdlib/td_api.dart' show TdError;
 
 import '../../services/telegram_service.dart';
 

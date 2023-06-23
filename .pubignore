@@ -27,3 +27,6 @@
 build/
 .metadata
 .pub/
+
+/data
+/generator

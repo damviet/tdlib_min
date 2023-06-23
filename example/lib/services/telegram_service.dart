@@ -7,8 +7,8 @@ import 'package:flutter/foundation.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:path_provider/path_provider.dart';
 
-import 'package:tdlib_min/tdlib_min.dart';
-import 'package:tdlib_min/td_api.dart';
+import 'package:tdlib/tdlib.dart';
+import 'package:tdlib/td_api.dart';
 
 import './locator.dart';
 import '../utils/const.dart';
