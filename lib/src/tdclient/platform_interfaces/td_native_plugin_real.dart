@@ -1,4 +1,5 @@
 import 'dart:ffi' as ffi;
+import 'dart:io';
 import 'package:ffi/ffi.dart';
 
 import 'td_plugin.dart';
@@ -10,10 +11,14 @@ class TdNativePlugin extends TdPlugin {
     TdPlugin.initialize = initialize;
   }
 
+  static String _windowLib = 'tdjson.dll';
+  static String _androidLib = 'libtdjson.so';
+
   /// This class is set to be the default [TdPlugin].instance.
   static Future initialize([String? libPath]) async {
+    String tempPath = Platform.isWindows ? _windowLib : _androidLib;
     TdPlugin.instance =
-        TdNativePlugin(ffi.DynamicLibrary.open(libPath ?? 'libtdjson.so'));
+        TdNativePlugin(ffi.DynamicLibrary.open(libPath ?? tempPath));
   }
 
   final ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName)
